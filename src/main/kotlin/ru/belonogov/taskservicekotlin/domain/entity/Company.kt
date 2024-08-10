@@ -14,7 +14,7 @@ class Company(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "company_id_seq")
     @SequenceGenerator(name = "company_id_seq", allocationSize = 1)
-    val id: Long? = null,
-    val name: String,
+    var id: Long? = null,
+    var name: String,
     @OneToMany(mappedBy = "company")
-    val employees: MutableSet<Employee> = mutableSetOf())
+    var employees: MutableSet<Employee> = mutableSetOf())

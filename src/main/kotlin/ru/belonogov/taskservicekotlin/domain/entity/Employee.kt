@@ -16,13 +16,13 @@ class Employee(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employees_id_seq")
     @SequenceGenerator(name = "employees_id_seq", allocationSize = 1)
-    var id: Long,
-    var firstName:String,
-    var lastName: String,
-    var rating: Int,
+    var id: Long? = null,
+    var firstName:String? = null,
+    var lastName: String? = null,
+    var rating: Int = 5,
     @ManyToOne
     @JoinColumn(name = "company_id")
-    var company: Company,
+    var company: Company? = null,
     @ManyToMany
     @JoinColumns
     @JoinTable(
@@ -30,7 +30,7 @@ class Employee(
         joinColumns = [JoinColumn(name = "employee_id", referencedColumnName = "id")],
         inverseJoinColumns = [JoinColumn(name = "task_id", referencedColumnName = "id")]
     )
-    var tasks: MutableSet<Task>
+    var tasks: MutableSet<Task> = mutableSetOf()
 ) {
 
     fun addTask(task: Task) {

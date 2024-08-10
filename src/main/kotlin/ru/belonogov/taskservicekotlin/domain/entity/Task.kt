@@ -7,13 +7,13 @@ class Task(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_id_seq")
     @SequenceGenerator(name = "task_id_seq", allocationSize = 1)
-    var id: Long,
+    var id: Long? = null,
     var name: String,
     var description: String,
-    var rating: String,
-    var taskStatus: TaskStatus,
+    var rating: Int,
+    var taskStatus: TaskStatus = TaskStatus.SEARCH_FOR_EMPLOYEES,
     @ManyToMany(mappedBy = "tasks", cascade = [CascadeType.PERSIST, CascadeType.MERGE])
-    var employees: MutableSet<Employee>
+    var employees: MutableSet<Employee> = mutableSetOf()
 ) {
     fun addEmployee(employee: Employee) {
         this.employees.add(employee)

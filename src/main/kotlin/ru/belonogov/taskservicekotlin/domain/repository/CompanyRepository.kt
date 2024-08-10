@@ -5,5 +5,5 @@ import ru.belonogov.taskservicekotlin.domain.entity.Company
 
 interface CompanyRepository: JpaRepository<Company, Long> {
 
-    fun findCompanyByName(name: String): Company?
+    fun findCompanyByName(companyName: String): Company?
 }
