@@ -9,9 +9,9 @@ import ru.belonogov.taskservicekotlin.domain.entity.Employee
 interface EmployeeService {
 
 fun create(employeeRequest: EmployeeRequest): EmployeeResponse
-fun readById(employeeId: Long): Employee
-fun readAllByCompany(companyName: String): MutableList<Employee>
-fun readAllByTask(taskId: Long): MutableList<Employee>
+fun readById(id: Long): Employee
+fun readAllByCompany(companyName: String): List<EmployeeResponse>
+fun readAllByTask(taskId: Long): List<EmployeeResponse>
 fun updateRating(employeeRatingUpdateRequest: EmployeeRatingUpdateRequest): EmployeeResponse
 fun addTask(taskEmployeeRequest: TaskEmployeeRequest)
 fun delete(employeeId: Long)

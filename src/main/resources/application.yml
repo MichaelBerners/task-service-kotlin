@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/task
+    username: admin
+    password: 111
+  liquibase:
+    change-log: db/changelog/liquibase-master.yaml

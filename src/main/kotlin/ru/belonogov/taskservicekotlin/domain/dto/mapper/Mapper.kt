@@ -9,8 +9,11 @@ import ru.belonogov.taskservicekotlin.domain.entity.Employee
 import ru.belonogov.taskservicekotlin.domain.entity.Task
 
 fun CompanyRequest.toCompany() = Company(name = name)
-fun EmployeeRequest.toEmployee() = Employee(firstName = firstName, lastName = lastName)
-fun TaskRequest.toTask() = Task(name = name, description = description, rating = rating)
+fun TaskRequest.toTask() = Task(
+    name = name,
+    description = description,
+    rating = rating,
+    employeeNeeded = employeeNeeded)
 fun Company.toCompanyResponse() = CompanyResponse(name = name)
 fun Employee.toEmployeeResponse() = EmployeeResponse(
     firstName = firstName!!,

@@ -11,6 +11,8 @@ class Task(
     var name: String,
     var description: String,
     var rating: Int,
+    var employeeNeeded: Int,
+    var employeeAssigned: Int = 0,
     var taskStatus: TaskStatus = TaskStatus.SEARCH_FOR_EMPLOYEES,
     @ManyToMany(mappedBy = "tasks", cascade = [CascadeType.PERSIST, CascadeType.MERGE])
     var employees: MutableSet<Employee> = mutableSetOf()

@@ -22,9 +22,8 @@ class Employee(
     var rating: Int = 5,
     @ManyToOne
     @JoinColumn(name = "company_id")
-    var company: Company? = null,
+    var company: Company,
     @ManyToMany
-    @JoinColumns
     @JoinTable(
         name = "tasks_employee",
         joinColumns = [JoinColumn(name = "employee_id", referencedColumnName = "id")],
